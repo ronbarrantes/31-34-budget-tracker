@@ -25,7 +25,7 @@ Your lab directory must include
 * **src/style/main.scss** -- for importing and including reset and base
 
 ## Feature Tasks 
-#### category 
+#### Category 
 * in this app a category should contain at least the following properties
   * `id` a uuid
   * `timestamp` a date from when the category was created
@@ -44,7 +44,7 @@ Your lab directory must include
 ###### action creators
 * you should create an action createor for each interaction supported by your category reducer
 
-##### Components
+#### Components
 Create the following components and structure them according to the following diagram.  
 ```
 Provider
@@ -78,5 +78,5 @@ The App component should setup the single page applicaion routes
 * should display a CategoryForm  
   * `onComplete` the form should update the component in the application state
 
-####  Documentation  
+##  Documentation  
 Write a description of the project in your README.md
