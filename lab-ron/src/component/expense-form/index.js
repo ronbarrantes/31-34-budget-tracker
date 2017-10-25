@@ -57,17 +57,14 @@ class ExpenseForm extends React.Component {
           type='number'
           name='amount'
           placeholder='amount'
-          value={this.state.amount}
+          value={this.state.price}
           onChange={this.handleChange}
         />
-
 
         <button type='submit'>{buttonText}</button>
       </form>
     )
-
   }
-
 }
 
 export default ExpenseForm

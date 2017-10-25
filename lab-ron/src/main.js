@@ -6,7 +6,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './component/app'
-import categoriesReducer from './reducer/categories.js'
+import categoriesReducer from './reducer'
 
 let store = createStore(categoriesReducer)
 
