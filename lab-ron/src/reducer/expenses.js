@@ -1,14 +1,11 @@
-const emptyState = {}
-
-export default (state = emptyState, { type, payload }) => {
+export default (state = {}, { type, payload }) => {
   let categoryID, categoryExpenses, result
-
+  
   switch (type) {
     case 'CATEGORY_CREATE':
       return { ...state, [payload.id]: [] }
 
     case 'CATEGORY_DESTROY':
-      // console.log('ID :::: ', payload.id, [payload.id]) /// What is this
       return { ...state, [payload.id]: undefined }
 
     case 'EXPENSE_CREATE':
