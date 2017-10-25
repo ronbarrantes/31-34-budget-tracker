@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import * as category from '../../action/category.js'
 
 class Dashboard extends React.Component {
-  render(){
+  render() {
     return (
-      <p>Hello</p>
+      <p>Dashboard</p>
     )
   }
 }
