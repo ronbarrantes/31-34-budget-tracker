@@ -35,12 +35,11 @@ module.exports = {
               options: {
                 sourceMap: true,
                 includePaths: [`${__dirname}/src/style`],
-              }
+              },
             },
           ],
-        })
-      }
-
+        }),
+      },
     ],
   },
 }

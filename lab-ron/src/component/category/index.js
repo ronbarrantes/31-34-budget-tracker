@@ -1,3 +1,5 @@
+import './_category.scss'
+
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -21,11 +23,9 @@ class Category extends React.Component {
 
     return (
       <div className='category'>
-        <CategoryForm category={category} onComplete={categoryUpdate} />
         <h2>{category.name} :: ${category.budget}</h2>
-
         <button onClick={() => { categoryDestroy(category) }}>delete</button>
-
+        <CategoryForm category={category} onComplete={categoryUpdate} />
         <ExpenseForm category={category} onComplete={expenseCreate} />
 
         {categoryExpenses.map((expense, i) =>

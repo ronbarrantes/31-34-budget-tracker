@@ -13,8 +13,7 @@ class Expense extends React.Component {
 
     return (
       <div className='expense'>
-        <p>{expense.name}</p>
-        <p>{expense.amount}</p>
+        <p>{expense.name} :: ${expense.amount}</p>
         <button onClick={() => expenseDestroy(expense)}>delete</button>
         <ExpenseForm expense={expense} onComplete={expenseUpdate} />
       </div>

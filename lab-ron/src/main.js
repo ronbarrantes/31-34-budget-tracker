@@ -11,7 +11,7 @@ import categoriesReducer from './reducer'
 let store = createStore(categoriesReducer)
 
 store.subscribe(()=> {
-  console.log('STATE ::', store.getState())
+  console.log('STATE:', store.getState())
 })
 
 const container = document.createElement('div')

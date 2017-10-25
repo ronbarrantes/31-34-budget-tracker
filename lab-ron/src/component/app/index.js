@@ -1,3 +1,4 @@
+import './_app.scss'
 import React from 'react'
 import { BrowserRouter, Redirect, Route, Link } from 'react-router-dom'
 
