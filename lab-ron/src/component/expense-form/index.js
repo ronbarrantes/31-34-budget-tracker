@@ -2,15 +2,16 @@ import React from 'react'
 
 let emptyState = {
   name: '',
-  budget: 0,
+  amount: 0,
 }
 
-class CategoryForm extends React.Component {
+class ExpenseForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.props.category || emptyState
-    this.handleSubmit = this.handleSubmit.bind(this)
+
+    this.state = props.expense || emptyState
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e) {
@@ -21,36 +22,42 @@ class CategoryForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.props.onComplete(this.state)
+    let categoryID = this.props.category ?
+      this.props.category.id :
+      this.props.expense.categoryID
+
+    this.props.onComplete({
+      ...this.state,
+      categoryID,
+    })
+
     this.setState(emptyState)
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.category)
-      this.setState(nextProps.category)
+    if (nextProps.expense)
+      this.setState(nextProps.expense)
   }
 
   render() {
-    let buttonText = this.props.category ? 'update' : 'create'
-
+    let buttonText = this.props.expense ? 'update' : 'create'
     return (
-      <form onSubmit={this.handleSubmit}
-        className='section-form'>
+      <form className='expense-form'
+        onSubmit={this.handleSubmit}>
 
         <input
           type='text'
           name='name'
-          placeholder='name'
+          placeholder='Expense Name'
           value={this.state.name}
           onChange={this.handleChange}
-
         />
 
         <input
           type='number'
-          name='budget'
-          placeholder='budget amount'
-          value={this.state.budget}
+          name='amount'
+          placeholder='amount'
+          value={this.state.amount}
           onChange={this.handleChange}
         />
 
@@ -58,8 +65,9 @@ class CategoryForm extends React.Component {
         <button type='submit'>{buttonText}</button>
       </form>
     )
+
   }
 
 }
 
-export default CategoryForm
+export default ExpenseForm
