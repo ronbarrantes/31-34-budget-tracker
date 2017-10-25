@@ -15,6 +15,7 @@ class CategoryForm extends React.Component {
 
   handleChange(e) {
     let { value, name, type } = e.target
+    // value = value === 0 ? '' : value
     value = type === 'number' ? Number(value) : value
     this.setState({ [name]: value })
   }
@@ -35,7 +36,7 @@ class CategoryForm extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}
-        className='section-form'>
+        className='category-form'>
 
         <input
           type='text'
@@ -43,7 +44,6 @@ class CategoryForm extends React.Component {
           placeholder='name'
           value={this.state.name}
           onChange={this.handleChange}
-
         />
 
         <input
@@ -54,12 +54,10 @@ class CategoryForm extends React.Component {
           onChange={this.handleChange}
         />
 
-
         <button type='submit'>{buttonText}</button>
       </form>
     )
   }
-
 }
 
 export default CategoryForm

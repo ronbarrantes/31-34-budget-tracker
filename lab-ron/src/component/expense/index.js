@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseForm from '../expense-form'
-import * as expense from '../../action/expenses.js'
+import * as expense from '../../action/expense.js'
 
 class Expense extends React.Component {
   render() {
