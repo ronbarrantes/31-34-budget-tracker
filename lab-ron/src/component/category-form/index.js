@@ -15,7 +15,6 @@ class CategoryForm extends React.Component {
 
   handleChange(e) {
     let { value, name, type } = e.target
-    // value = value === 0 ? '' : value
     value = type === 'number' ? Number(value) : value
     this.setState({ [name]: value })
   }

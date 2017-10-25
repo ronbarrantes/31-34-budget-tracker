@@ -2,7 +2,7 @@ import './_category.scss'
 
 import React from 'react'
 import { connect } from 'react-redux'
-
+import faker from 'faker'
 import Expense from '../expense'
 import ExpenseForm from '../expense-form'
 import CategoryForm from '../category-form'
@@ -10,6 +10,17 @@ import * as expense from '../../action/expense.js'
 import * as category from '../../action/category.js'
 
 class Category extends React.Component {
+
+  componentWillMount() {
+    for (let i = 0; i < 3; i++) {
+      this.props.expenseCreate({
+        name: faker.lorem.words(4),
+        amount: Math.floor(Math.random() * 300),
+        categoryID: this.props.category.id,
+      })
+    }
+  }
+
   render() {
     let {
       expenses,
