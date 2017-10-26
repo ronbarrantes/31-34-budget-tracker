@@ -1,0 +1,31 @@
+@import 'vars';
+body {
+  background: $color-white;
+  color: $color-black;
+  font: 1em 'Open Sans', sans-serif;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  background: $color-dark-green;
+  border-radius: 25px;
+  font-size: 1.2em;
+}
+
+input {
+  border: none;
+  font-size: 1.2em;
+}

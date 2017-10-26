@@ -1,5 +1,2 @@
-$primary-color: #99aaaa;
-body {
-  background: $primary-color;
-  font: 1em sans-serif;
-}
+@import '../vendor/eric-meyer/reset.css';
+@import 'base'
