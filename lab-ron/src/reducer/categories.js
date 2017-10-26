@@ -9,9 +9,6 @@ export default (state = [], { type, payload }) => {
     case 'CATEGORY_DESTROY':
       return state.filter(item => item.id !== payload.id)
     
-    case 'CATEGORY_CLEAR':
-      return emptyState
-    
     default:
       return state
   }

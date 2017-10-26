@@ -1,6 +1,6 @@
 export default (state = {}, { type, payload }) => {
   let categoryID, categoryExpenses, result
-  
+
   switch (type) {
     case 'CATEGORY_CREATE':
       return { ...state, [payload.id]: [] }
@@ -11,7 +11,8 @@ export default (state = {}, { type, payload }) => {
     case 'EXPENSE_CREATE':
       categoryID = payload.categoryID
       categoryExpenses = state[categoryID]
-      result = [...categoryExpenses, payload]
+      result = [payload, ...categoryExpenses] // adding the expenses bottom to top
+      // result = [payload, ...categoryExpenses ] // top to bottom expenses
       return { ...state, [categoryID]: result }
 
     case 'EXPENSE_UPDATE':
@@ -28,6 +29,6 @@ export default (state = {}, { type, payload }) => {
       return { ...state, [categoryID]: result }
     default:
       return state
-      
+
   }
 }
