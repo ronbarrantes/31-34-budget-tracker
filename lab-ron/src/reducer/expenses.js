@@ -12,7 +12,6 @@ export default (state = {}, { type, payload }) => {
       categoryID = payload.categoryID
       categoryExpenses = state[categoryID]
       result = [payload, ...categoryExpenses] // adding the expenses bottom to top
-      // result = [payload, ...categoryExpenses ] // top to bottom expenses
       return { ...state, [categoryID]: result }
 
     case 'EXPENSE_UPDATE':

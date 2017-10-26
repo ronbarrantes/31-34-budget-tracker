@@ -58,11 +58,12 @@ class Category extends React.Component {
         {renderIf(edit,
           <div>
             <CategoryForm category={category} onComplete={this.handleUpdate} />
-            <button onClick={() => { categoryDestroy(category) }}>delete</button>
+            <button onClick={() => {
+              categoryDestroy(category)
+              this.setState({ edit: false })
+            }}>delete</button>
           </div>
         )}
-
-
 
         <ExpenseForm category={category} onComplete={expenseCreate} />
         {categoryExpenses.map((expense, i) =>
