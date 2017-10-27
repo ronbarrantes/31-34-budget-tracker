@@ -18,6 +18,10 @@
       font-size: 1.2em;
       margin: .2em .5em;
       float: right;
+      &:hover {
+        background: $color-light-green;
+        color: $color-black;
+      }
     }
     .category-form {
       padding-bottom: .5em;

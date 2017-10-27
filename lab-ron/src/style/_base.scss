@@ -39,6 +39,9 @@ button {
   border: none;
   background: $color-dark-green;
   border-radius: 5px; // font-size: 1.2em;
+  &:hover {
+    background: $color-light-green;
+  }
 }
 
 input {
