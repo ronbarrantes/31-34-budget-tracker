@@ -1,4 +1,4 @@
-//import './_app.scss'
+import './_app.scss'
 import React from 'react'
 import { BrowserRouter, Redirect, Route, Link } from 'react-router-dom'
 
@@ -12,8 +12,8 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1>Budget Tracker</h1>
               <nav>
+                <h1><Link to='/'>Budget Tracker</Link></h1>
                 <ul>
                   <li><Link to='/'>home</Link></li>
                   <li><Link to='/dashboard'>dashboard</Link></li>

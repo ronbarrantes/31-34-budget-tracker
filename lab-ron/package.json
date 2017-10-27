@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack-dev-server --inline --hot",
-    "test": "jest -i"
+"build": "webpack",
+"test": "jest -i"
   },
   "keywords": [],
   "author": "ronbarrantes",

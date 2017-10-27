@@ -1,4 +1,5 @@
 import React from 'react'
+import './_category-form.scss'
 
 let emptyState = {
   name: '',
