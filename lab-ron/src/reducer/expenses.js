@@ -4,7 +4,7 @@ export const validateExpense = (expense) => {
 }
 
 export default (state = {}, { type, payload }) => {
-  let categoryID, categoryExpenses, result
+  let categoryID, categoryExpenses, result, expense, oldCategoryID, oldCategory, newCategory
 
   switch (type) {
     case 'CATEGORY_CREATE':
@@ -33,6 +33,21 @@ export default (state = {}, { type, payload }) => {
       categoryExpenses = state[categoryID]
       result = categoryExpenses.filter(item => item.id !== payload.id)
       return { ...state, [categoryID]: result }
+
+    case 'EXPENSE_UPDATE_CATEGORY_ID': // to drag drop cards
+      expense = payload.expense
+      oldCategoryID = expense.categoryID
+      if (oldCategoryID == payload.categoryID)
+        return state
+      oldCategory = state[expense.categoryID].filter(item => item.id !== expense.id)
+      expense.categoryID = payload.categoryID
+      newCategory = [expense, ...state[payload.categoryID]]
+      return {
+        ...state,
+        [oldCategoryID]: oldCategory,
+        [expense.categoryID]: newCategory,
+      }
+
     default:
       return state
 
