@@ -48,20 +48,23 @@ class Category extends React.Component {
     return (
       <div className='category'>
         {renderIf(!edit,
+          <div className='receipt-head'>
 
-          <h2 onDoubleClick={() => this.setState({ edit: true })} >
-            {category.name} :: ${category.budget}
-          </h2>
-        )}
+            <h2 onDoubleClick={() => this.setState({ edit: true })} >
+              {category.name} :: ${category.budget}
+            </h2>
 
-
-        {renderIf(edit,
-          <div>
-            <CategoryForm category={category} onComplete={this.handleUpdate} />
             <button onClick={() => {
               categoryDestroy(category)
               this.setState({ edit: false })
             }}>delete</button>
+
+          </div>
+        )}
+
+        {renderIf(edit,
+          <div className='receipt-head'>
+            <CategoryForm category={category} onComplete={this.handleUpdate} />
           </div>
         )}
 

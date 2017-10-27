@@ -1,15 +1,12 @@
 .category-form {
-  background: red;
-  margin: 0 auto;
-  width: 300px;
+  margin: 0 auto; 
   input {
     font-size: 1.3em;
-    width: 150px;
+    width: 50%;
   }
   input:last-of-type {
     font-size: 1.3em;
-    width: 100px;
-
+    width: 25%;
   }
   button {
     font-size: 1.3em;

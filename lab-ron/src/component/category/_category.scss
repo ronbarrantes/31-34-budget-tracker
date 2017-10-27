@@ -1,5 +1,27 @@
-.category{
-  float:left;
+@import 'vars';
+.category {
+  width: 300px;
+  float: left;
   margin: 1em;
-  
+  border: 1px dashed $color-dark-green; // .category-form {
+  //   background: $color-dark-green;
+  // }
+  .receipt-head {
+    background: $color-dark-green;
+    h2 {
+      color: $color-white;
+      display: inline-block;
+    }
+    button {
+      background: $color-white;
+      color: $color-dark-green;
+      font-size: 1.2em;
+      margin: .2em .5em;
+      float: right;
+    }
+    .category-form {
+      padding-bottom: .5em;
+      border-bottom: 1px dashed #000;
+    }
+  }
 }

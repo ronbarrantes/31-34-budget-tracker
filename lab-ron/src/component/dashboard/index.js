@@ -1,3 +1,5 @@
+import './_dashboard.scss'
+
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -25,7 +27,6 @@ class Dashboard extends React.Component {
         {categories.map((category, i) =>
           <Category key={i} category={category} />
         )}
-
       </div>
     )
   }
@@ -34,7 +35,6 @@ class Dashboard extends React.Component {
 let mapStateToProps = state => ({
   categories: state.categories,
 })
-
 
 let mapDispatchToProps = dispatch => ({
   categoryCreate: (data) => dispatch(category.create(data)),
