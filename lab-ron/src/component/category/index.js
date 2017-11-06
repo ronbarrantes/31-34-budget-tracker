@@ -2,8 +2,10 @@ import './_category.scss'
 
 import React from 'react'
 import { connect } from 'react-redux'
+
 import faker from 'faker'
 import Expense from '../expense'
+import DropZone from '../drop-zone'
 import ExpenseForm from '../expense-form'
 import CategoryForm from '../category-form'
 import * as expense from '../../action/expense.js'
@@ -40,6 +42,7 @@ class Category extends React.Component {
       expenseCreate,
       categoryUpdate,
       categoryDestroy,
+      expenseUpdateCategory,
     } = this.props
 
     let { edit } = this.state
@@ -47,31 +50,33 @@ class Category extends React.Component {
 
     return (
       <div className='category'>
-        {renderIf(!edit,
-          <div className='receipt-head'>
 
-            <h2 onDoubleClick={() => this.setState({ edit: true })} >
-              {category.name} :: ${category.budget}
-            </h2>
+        <DropZone onComplete={(expense) => expenseUpdateCategory(expense, category.id)}>
+          {renderIf(!edit,
+            <div className='receipt-head'>
 
-            <button onClick={() => {
-              categoryDestroy(category)
-              this.setState({ edit: false })
-            }}>delete</button>
+              <h2 onDoubleClick={() => this.setState({ edit: true })} >
+                {category.name} :: ${category.budget}
+              </h2>
 
-          </div>
-        )}
+              <button onClick={() => {
+                categoryDestroy(category)
+                this.setState({ edit: false })
+              }}>delete</button>
+            </div>
+          )}
 
-        {renderIf(edit,
-          <div className='receipt-head'>
-            <CategoryForm category={category} onComplete={this.handleUpdate} />
-          </div>
-        )}
+          {renderIf(edit,
+            <div className='receipt-head'>
+              <CategoryForm category={category} onComplete={this.handleUpdate} />
+            </div>
+          )}
 
-        <ExpenseForm category={category} onComplete={expenseCreate} />
-        {categoryExpenses.map((expense, i) =>
-          <Expense expense={expense} key={i} />
-        )}
+          <ExpenseForm category={category} onComplete={expenseCreate} />
+          {categoryExpenses.map((expense, i) =>
+            <Expense expense={expense} key={i} />
+          )}
+        </DropZone>
       </div>
     )
   }
@@ -83,6 +88,7 @@ let mapStateToProps = state => ({
 
 let mapDispatchToProps = (dispatch) => ({
   expenseCreate: (data) => dispatch(expense.create(data)),
+  expenseUpdateCategory: (data, categoryID) => dispatch(expense.updateCategoryID(data, categoryID)),
   categoryUpdate: (data) => dispatch(category.update(data)),
   categoryDestroy: (data) => dispatch(category.destroy(data)),
 })

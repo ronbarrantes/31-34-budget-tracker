@@ -1,5 +1,6 @@
 import './_expense.scss'
 import React from 'react'
+import Draggable from '../draggable'
 import { connect } from 'react-redux'
 import ExpenseForm from '../expense-form'
 import { renderIf } from '../../lib/util.js'
@@ -28,18 +29,18 @@ class Expense extends React.Component {
 
     return (
       <div className='expense'>
+        <Draggable data={expense}>
+          {renderIf(!edit,
+            <div onDoubleClick={() => this.setState({ edit: true })}>
+              <p>{expense.name} :: ${expense.amount}</p>
+              <button onClick={() => expenseDestroy(expense)}>delete</button>
+            </div>
+          )}
 
-        {renderIf(!edit,
-          <div onDoubleClick={() => this.setState({ edit: true })}>
-            <p>{expense.name} :: ${expense.amount}</p>
-            <button onClick={() => expenseDestroy(expense)}>delete</button>
-          </div>
-        )}
-
-        {renderIf(edit,
-          <ExpenseForm expense={expense} onComplete={this.handleUpdate} />
-        )}
-
+          {renderIf(edit,
+            <ExpenseForm expense={expense} onComplete={this.handleUpdate} />
+          )}
+        </Draggable>
       </div>
     )
   }
